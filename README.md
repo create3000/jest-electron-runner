@@ -1,5 +1,7 @@
 # Jest Electron Runner
 
+This project is a fork of https://github.com/kayahr/jest-electron-runner.
+
 | :warning: This project is no longer maintained because the author switched from Jest to [Vitest](https://vitest.dev/) :warning: |
 | ------------------------------------------------------------------------------------------------------------------------------- |
 
