@@ -1,115 +1,115 @@
 {
-    "name": "@create3000/jest-electron-runner",
-    "version": "29.15.1",
-    "description": "Jest runner that spawns electron workers instead of node",
-    "keywords": [
-        "jest-electron",
-        "jest-runner",
-        "jest",
-        "electron",
-        "tests"
-    ],
-    "license": "MIT",
-    "author": "Klaus Reimer <k@ailis.de>",
-    "repository": "github:create3000/jest-electron-runner",
-    "bugs": "https://github.com/create3000/jest-electron-runner/issues",
-    "homepage": "https://github.com/create3000/jest-electron-runner",
-    "publishConfig": {
-        "access": "public"
-    },
-    "files": [
-        "lib",
-        "src"
-    ],
-    "scripts": {
-        "prepare": "run-s clean build",
-        "clean": "rimraf lib",
-        "build": "run-s build:*",
-        "build:compile": "tsc",
-        "build:copyfiles": "copyfiles -u 1 src/**/*.html lib",
-        "test": "run-s test:*",
-        "test:unit": "jest --colors",
-        "test:spell": "cspell --no-progress --no-summary",
-        "test:lint": "eslint --max-warnings 0"
-    },
-    "jest": {
-        "projects": [
-            {
-                "displayName": "main",
-                "runner": "./lib/main/electron/TestRunnerMain",
-                "testEnvironment": "node",
-                "testEnvironmentOptions": {
-                    "electron": {
-                        "options": [
-                            "js-flags=--expose-gc"
-                        ]
-                    }
-                },
-                "testMatch": [
-                    "<rootDir>/lib/test/main/**/*.test.js"
-                ]
-            },
-            {
-                "displayName": "renderer",
-                "runner": "./lib/main/electron/TestRunnerRenderer",
-                "testEnvironment": "./lib/main/electron/Environment",
-                "testEnvironmentOptions": {
-                    "electron": {
-                        "options": [
-                            "force-device-scale-factor=7"
-                        ]
-                    }
-                },
-                "testMatch": [
-                    "<rootDir>/lib/test/renderer/**/*.test.js"
-                ]
-            }
+  "name": "@create3000/jest-electron-runner",
+  "version": "29.15.1",
+  "description": "Jest runner that spawns electron workers instead of node",
+  "keywords": [
+    "jest-electron",
+    "jest-runner",
+    "jest",
+    "electron",
+    "tests"
+  ],
+  "license": "MIT",
+  "author": "Klaus Reimer <k@ailis.de>",
+  "repository": "github:create3000/jest-electron-runner",
+  "bugs": "https://github.com/create3000/jest-electron-runner/issues",
+  "homepage": "https://github.com/create3000/jest-electron-runner",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "prepare": "run-s clean build",
+    "clean": "rimraf lib",
+    "build": "run-s build:*",
+    "build:compile": "tsc",
+    "build:copyfiles": "copyfiles -u 1 src/**/*.html lib",
+    "test": "run-s test:*",
+    "test:unit": "jest --colors",
+    "test:spell": "cspell --no-progress --no-summary",
+    "test:lint": "eslint --max-warnings 0"
+  },
+  "jest": {
+    "projects": [
+      {
+        "displayName": "main",
+        "runner": "./lib/main/electron/TestRunnerMain",
+        "testEnvironment": "node",
+        "testEnvironmentOptions": {
+          "electron": {
+            "options": [
+              "js-flags=--expose-gc"
+            ]
+          }
+        },
+        "testMatch": [
+          "<rootDir>/lib/test/main/**/*.test.js"
         ]
-    },
-    "exports": {
-        ".": "./lib/main/electron/TestRunnerRenderer.js",
-        "./main": "./lib/main/electron/TestRunnerMain.js",
-        "./environment": "./lib/main/electron/Environment.js"
-    },
-    "overrides": {
-        "globals": "^15.11.0"
-    },
-    "devDependencies": {
-        "@kayahr/eslint-config": "3.1.0",
-        "@types/express": "5.0.0",
-        "@types/jest": "29.5.13",
-        "@types/node": "22.7.6",
-        "@types/node-ipc": "9.2.3",
-        "@types/shell-quote": "1.7.5",
-        "@types/source-map-support": "0.5.10",
-        "@types/uuid": "10.0.0",
-        "copyfiles": "2.4.1",
-        "cspell": "8.15.3",
-        "express": "4.21.1",
-        "npm-run-all": "4.1.5",
-        "rimraf": "6.0.1",
-        "typescript": "5.6.3"
-    },
-    "dependencies": {
-        "@electron/remote": "^2.1.3",
-        "@jest/console": "^29.7.0",
-        "@jest/transform": "^29.7.0",
-        "electron": "^41.0.2",
-        "jest": "^29.7.0",
-        "jest-docblock": "^29.7.0",
-        "jest-haste-map": "^29.7.0",
-        "jest-jasmine2": "^29.7.0",
-        "jest-leak-detector": "^29.7.0",
-        "jest-message-util": "^29.7.0",
-        "jest-mock": "^29.7.0",
-        "jest-resolve": "^29.7.0",
-        "jest-runtime": "^29.7.0",
-        "jest-util": "^29.7.0",
-        "node-ipc": "^10.1.0",
-        "shell-quote": "^1.8.1",
-        "source-map-support": "^0.5.21",
-        "throat": "^6.0.2",
-        "tslib": "^2.8.0",
-        "uuid": "^10.0.0"
-    }
+      },
+      {
+        "displayName": "renderer",
+        "runner": "./lib/main/electron/TestRunnerRenderer",
+        "testEnvironment": "./lib/main/electron/Environment",
+        "testEnvironmentOptions": {
+          "electron": {
+            "options": [
+              "force-device-scale-factor=7"
+            ]
+          }
+        },
+        "testMatch": [
+          "<rootDir>/lib/test/renderer/**/*.test.js"
+        ]
+      }
+    ]
+  },
+  "exports": {
+    ".": "./lib/main/electron/TestRunnerRenderer.js",
+    "./main": "./lib/main/electron/TestRunnerMain.js",
+    "./environment": "./lib/main/electron/Environment.js"
+  },
+  "overrides": {
+    "globals": "^15.11.0"
+  },
+  "devDependencies": {
+    "@kayahr/eslint-config": "3.1.0",
+    "@types/express": "5.0.0",
+    "@types/jest": "29.5.13",
+    "@types/node": "22.7.6",
+    "@types/node-ipc": "9.2.3",
+    "@types/shell-quote": "1.7.5",
+    "@types/source-map-support": "0.5.10",
+    "@types/uuid": "10.0.0",
+    "copyfiles": "2.4.1",
+    "cspell": "8.15.3",
+    "express": "4.21.1",
+    "npm-run-all": "4.1.5",
+    "rimraf": "6.0.1",
+    "typescript": "5.6.3"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.3",
+    "@jest/console": "^29.7.0",
+    "@jest/transform": "^29.7.0",
+    "electron": "^41.3.0",
+    "jest": "^29.7.0",
+    "jest-docblock": "^29.7.0",
+    "jest-haste-map": "^29.7.0",
+    "jest-jasmine2": "^29.7.0",
+    "jest-leak-detector": "^29.7.0",
+    "jest-message-util": "^29.7.0",
+    "jest-mock": "^29.7.0",
+    "jest-resolve": "^29.7.0",
+    "jest-runtime": "^29.7.0",
+    "jest-util": "^29.7.0",
+    "node-ipc": "^10.1.0",
+    "shell-quote": "^1.8.1",
+    "source-map-support": "^0.5.21",
+    "throat": "^6.0.2",
+    "tslib": "^2.8.0",
+    "uuid": "^10.0.0"
+  }
 }

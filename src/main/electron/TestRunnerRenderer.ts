@@ -8,6 +8,8 @@
 import { TestRunnerTarget } from "../types.js";
 import TestRunner from "./TestRunner";
 
+process .env ["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
+
 export default class TestRunnerRenderer extends TestRunner {
     public getTarget(): TestRunnerTarget {
         return TestRunnerTarget.RENDERER;
