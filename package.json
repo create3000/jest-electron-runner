@@ -1,6 +1,6 @@
 {
   "name": "@create3000/jest-electron-runner",
-  "version": "29.15.1",
+  "version": "29.15.2",
   "description": "Jest runner that spawns electron workers instead of node",
   "keywords": [
     "jest-electron",
